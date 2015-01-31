@@ -3,18 +3,122 @@
 
 var React = require("react");
 
-var App = React.createClass({
-  displayName: "App",
+var contact = {
+  name: "Sandesh",
+  title: "Web Developer",
+  desc: "Love to code",
+  email: "sandesh***@gmail.com",
+  location: "San Fransisco, CA",
+  work: "Front End Web Developer",
+  website: "http://sandy.co.in",
+  phone: "+12345678900",
+  followers: "25K+",
+  following: "512"
+};
+
+var ContactCard = React.createClass({
+  displayName: "ContactCard",
+  getInitialState: function getInitialState() {
+    return {
+      name: contact.name,
+      title: contact.title,
+      desc: contact.desc,
+      avatarUrl: "http://www.gravatar.com/avatar/d1887febcaf8696ac01dcde5de86fe04",
+      work: contact.work,
+      location: contact.location,
+      followers: contact.followers,
+      following: contact.following,
+      contactInfo: {
+        email: contact.email,
+        website: contact.website,
+        phone: contact.phone
+      }
+    };
+  },
   render: function render() {
+    var profilePictureStyle = {
+      backgroundImage: "url(" + this.state.avatarUrl + "?s=128);"
+    };
     return React.createElement(
-      "h1",
+      "div",
       null,
-      "Hello World"
+      React.createElement(
+        "div",
+        { className: "portfoliocard" },
+        React.createElement("div", { className: "coverphoto" }),
+        React.createElement("div", { className: "profile_picture", style: profilePictureStyle }),
+        React.createElement(
+          "div",
+          { className: "left_col" },
+          React.createElement(
+            "div",
+            { className: "followers" },
+            React.createElement(
+              "div",
+              { className: "follow_count" },
+              "18,541"
+            ),
+            "Followers"
+          ),
+          React.createElement(
+            "div",
+            { className: "following" },
+            React.createElement(
+              "div",
+              { className: "follow_count" },
+              "181"
+            ),
+            "Following"
+          )
+        ),
+        React.createElement(
+          "div",
+          { className: "right_col" },
+          React.createElement(
+            "h2",
+            { className: "name" },
+            this.state.name
+          ),
+          React.createElement(
+            "h3",
+            { className: "location" },
+            this.state.location
+          ),
+          React.createElement(
+            "ul",
+            { className: "contact_information" },
+            React.createElement(
+              "li",
+              { className: "work" },
+              this.state.work
+            ),
+            React.createElement(
+              "li",
+              { className: "website" },
+              React.createElement(
+                "a",
+                { className: "nostyle", href: this.state.contactInfo.website },
+                this.state.contactInfo.website
+              )
+            ),
+            React.createElement(
+              "li",
+              { className: "mail" },
+              this.state.contactInfo.email
+            ),
+            React.createElement(
+              "li",
+              { className: "phone" },
+              this.state.contactInfo.phone
+            )
+          )
+        )
+      )
     );
   }
 });
 
-React.render(React.createElement(App, null), document.getElementById("container"));
+React.render(React.createElement(ContactCard, null), document.getElementById("container"));
 
 },{"react":"c:\\Users\\Sandesh\\Documents\\Github\\ContactManager\\node_modules\\react\\react.js"}],"c:\\Users\\Sandesh\\Documents\\Github\\ContactManager\\node_modules\\browserify\\node_modules\\process\\browser.js":[function(require,module,exports){
 // shim for using process in browser
