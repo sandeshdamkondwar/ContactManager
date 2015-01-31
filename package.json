@@ -1,0 +1,15 @@
+{
+  "name": "contact-manager",
+  "version": "1.0.0",
+  "description": "Simple contact manager web app in React",
+  "dependencies": {
+    "6to5ify": "^3.1.0",
+    "browserify": "^8.0.3",
+    "react": "^0.12.2",
+    "watchify": "^2.2.1"
+  },
+  "scripts": {
+    "watch": "watchify -t 6to5ify ./js/app.jsx -o ./js/bundle.js -v"
+  },
+  "author": "Sandesh Damkondwar"
+}
